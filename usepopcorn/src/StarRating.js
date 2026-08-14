@@ -1,5 +1,15 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
+StarRating.propTypes = {
+  maxLength: PropTypes.number,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  defaultValue: PropTypes.number,
+  className: PropTypes.string,
+  messages: PropTypes.array,
+  onSetRating: PropTypes.func,
+};
 export default function StarRating({
   maxLength = 5,
   color = "#ffd634",
