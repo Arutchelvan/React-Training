@@ -18,7 +18,7 @@ export default function TextExpander({
         : `${children.split(" ", collapsedNumWords).join(" ", ",") + "..."}`}
       <span
         style={{ color: buttonColor, cursor: "pointer", marginLeft: "5px" }}
-        onClick={() => setToggle(!toggle)}
+        onClick={() => setToggle((value) => !value)}
       >
         {toggle ? collapseButtonText : expandButtonText}
       </span>
