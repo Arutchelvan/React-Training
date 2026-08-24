@@ -55,30 +55,39 @@ const KEY = "1811f19c";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const query = "interstellar";
 
-  useEffect(function () {
+  /* useEffect(function () {
     fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar`)
       .then((res) => res.json())
       .then((data) => setMovies(data.Search));
-  }, []);
+  }, []); */
 
-  /* useEffect(function () {
-    async function getData() {
+  useEffect(function () {
+    async function fetchMoives() {
       try {
+        setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=interstellar`,
+          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
         );
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
+        if (!res.ok) throw new Error("Problem in fetching data");
+
         const data = await res.json();
+        if (data.Response === "False") throw new Error("Movie Not Found");
+
         setMovies(data.Search);
       } catch (error) {
         console.log(error);
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
       }
     }
-    getData();
-  }, []); */
+    fetchMoives();
+  }, []);
+
   return (
     <>
       <NavBar>
@@ -98,7 +107,10 @@ export default function App() {
       </Main> */}
       <Main>
         <Box>
-          <MovieList movies={movies} />
+          {/* {isLoading ? <Loading /> : <MovieList movies={movies} />} */}
+          {isLoading && <Loading />}
+          {!isLoading && !error && <MovieList movies={movies} />}
+          {error && <ErrorMessage error={error} />}
         </Box>
 
         <Box>
@@ -107,6 +119,19 @@ export default function App() {
         </Box>
       </Main>
     </>
+  );
+}
+
+function Loading() {
+  return <div className="loader">Loading...</div>;
+}
+
+function ErrorMessage({ error }) {
+  return (
+    <p className="error">
+      <span>⛔ </span>
+      {error}
+    </p>
   );
 }
 
