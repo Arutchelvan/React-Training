@@ -54,7 +54,7 @@ const average = (arr) =>
 const KEY = "1811f19c";
 
 export default function App() {
-  const [query, setQuery] = useState("interstellar");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -122,7 +122,7 @@ export default function App() {
           setMovies(data.Search);
           setError("");
         } catch (error) {
-          console.log(error);
+          // console.log(error);
           if (error.name !== "AbortError") {
             setError(error.message);
           }
@@ -324,9 +324,9 @@ function MovieDetails({
             { signal: controller.signal },
           );
           if (!res.ok) throw new Error("Error while loading");
-          console.log(res);
+          // console.log(res);
           const data = await res.json();
-          console.log(data);
+          // console.log(data);
           if (data.Response === "False") throw new Error(data.Error);
           setMovie(data);
         } catch (error) {
@@ -364,12 +364,12 @@ function MovieDetails({
   const isWatched = watchedMovies
     .map((movie) => movie.imdbID)
     .includes(selectedID);
-  console.log(isWatched);
+  // console.log(isWatched);
 
   const watchedUserRating = watchedMovies.find(
     (movie) => movie.imdbID === selectedID,
   )?.userRating;
-  console.log(watchedUserRating);
+  // console.log(watchedUserRating);
 
   useEffect(
     function () {
@@ -378,10 +378,28 @@ function MovieDetails({
 
       return function () {
         document.title = "usePopcorn";
-        console.log(`Clean up effect for movie ${title}`);
+        // console.log(`Clean up effect for movie ${title}`);
       };
     },
     [title],
+  );
+
+  useEffect(
+    function () {
+      function callback(e) {
+        // console.log(e);
+        if (e.code === "Escape") {
+          // console.log("Closed");
+          onCloseMovie();
+        }
+      }
+      document.addEventListener("keydown", callback);
+
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [onCloseMovie],
   );
 
   return (
