@@ -105,12 +105,14 @@ export default function App() {
 
   useEffect(
     function () {
+      const controller = new AbortController();
       async function fetchMovies() {
         try {
           setIsLoading(true);
           setError("");
           const res = await fetch(
             `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+            { signal: controller.signal },
           );
           if (!res.ok) throw new Error("Problem in fetching data");
 
@@ -118,9 +120,12 @@ export default function App() {
           if (data.Response === "False") throw new Error("Movie Not Found!");
 
           setMovies(data.Search);
+          setError("");
         } catch (error) {
           console.log(error);
-          setError(error.message);
+          if (error.name !== "AbortError") {
+            setError(error.message);
+          }
         } finally {
           setIsLoading(false);
         }
@@ -133,6 +138,10 @@ export default function App() {
       }
 
       fetchMovies();
+
+      return function () {
+        controller.abort();
+      };
     },
     [query],
   );
@@ -305,11 +314,14 @@ function MovieDetails({
   } = movie;
   useEffect(
     function () {
+      const controller = new AbortController();
+
       async function getMovieDetails() {
         try {
           setIsLoading(true);
           const res = await fetch(
             `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedID}`,
+            { signal: controller.signal },
           );
           if (!res.ok) throw new Error("Error while loading");
           console.log(res);
@@ -318,13 +330,19 @@ function MovieDetails({
           if (data.Response === "False") throw new Error(data.Error);
           setMovie(data);
         } catch (error) {
-          setError(error.message);
+          if (error.name !== "AbortError") {
+            setError(error.message);
+          }
         } finally {
           setIsLoading(false);
         }
       }
 
       getMovieDetails();
+
+      return function () {
+        controller.abort();
+      };
     },
     [selectedID],
   );
