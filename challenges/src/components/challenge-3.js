@@ -59,13 +59,13 @@ export default function CurrencyConverter() {
         <option value="INR">INR</option>
       </select>
       <p>
-        OUTPUT :{" "}
+        OUTPUT :
         {loader ? (
           "Loading ..."
         ) : (
-          <span>
+          <>
             {output} {convertTo}
-          </span>
+          </>
         )}
       </p>
     </div>
