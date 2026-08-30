@@ -1,11 +1,13 @@
 import Calculator from "./components/challenge-1";
 import TextExpander from "./components/challenge-2";
+import CurrencyConverter from "./components/challenge-3";
 
 export default function App() {
   return (
     <div className="App">
       <h1>Calculator Component</h1>
       <Calculator />
+      <hr style={{ margin: "50px" }} />
       <h1>Text Expander Component</h1>
       <TextExpander>
         Space travel is the ultimate adventure! Imagine soaring past the stars
@@ -34,6 +36,12 @@ export default function App() {
         travel is a pretty cool thing to think about. Who knows what we'll
         discover next!
       </TextExpander>
+
+      <hr style={{ margin: "50px" }} />
+      <h1>Currency Converter by API</h1>
+      <CurrencyConverter />
+
+      <hr style={{ margin: "50px" }} />
     </div>
   );
 }
