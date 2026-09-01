@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import { useMovies } from "./useMovies";
+import { useLocalStorageState } from "./useLocalStorageState";
+import { useKey } from "./useKey";
 
 const tempMovieData = [
   {
@@ -56,14 +58,12 @@ const KEY = "1811f19c";
 
 export default function App() {
   const [query, setQuery] = useState("");
-  const [watched, setWatched] = useState(function () {
-    const storedData = localStorage.getItem("watched");
-    return JSON.parse(storedData) || [];
-  });
 
   const [selectedID, setSelectedID] = useState(null);
 
   const { movies, error, isLoading } = useMovies(query);
+
+  const [watched, setWatched] = useLocalStorageState([], "watched");
 
   /*const tempQuery = "interstellar";
 
@@ -209,13 +209,19 @@ function Search({ query, setQuery }) {
 
   const inputEl = useRef(null);
 
-  useEffect(
+  useKey("Enter", function () {
+    if (document.activeElement === inputEl.current) return;
+    inputEl.current.focus();
+    setQuery("");
+  });
+
+  /* useEffect(
     function () {
       inputEl.current.focus();
 
-      function callback(e) {
-        if (document.activeElement === inputEl.current) return;
+      if (document.activeElement === inputEl.current) return;
 
+      function callback(e) {
         if (e.key === "Enter") {
           inputEl.current.focus();
           setQuery("");
@@ -229,7 +235,7 @@ function Search({ query, setQuery }) {
       };
     },
     [setQuery],
-  );
+  ); */
 
   return (
     <input
@@ -398,23 +404,7 @@ function MovieDetails({
     [title],
   );
 
-  useEffect(
-    function () {
-      function callback(e) {
-        // console.log(e);
-        if (e.code === "Escape") {
-          // console.log("Closed");
-          onCloseMovie();
-        }
-      }
-      document.addEventListener("keydown", callback);
-
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
-    },
-    [onCloseMovie],
-  );
+  useKey("Escape", onCloseMovie);
 
   return (
     <div className="details">
