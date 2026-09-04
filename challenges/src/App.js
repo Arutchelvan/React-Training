@@ -2,6 +2,7 @@ import Calculator from "./components/challenge-1";
 import TextExpander from "./components/challenge-2";
 import CurrencyConverter from "./components/challenge-3";
 import FindGeoLocation from "./components/challenge-4";
+import InputButtonFocus from "./components/useRefHook";
 
 export default function App() {
   return (
@@ -45,6 +46,12 @@ export default function App() {
       <hr style={{ margin: "50px" }} />
 
       <FindGeoLocation />
+
+      <hr style={{ margin: "50px" }} />
+
+      <InputButtonFocus />
+
+      <hr style={{ margin: "50px" }} />
     </div>
   );
 }
