@@ -8,7 +8,10 @@ import Question from "./Question";
 import NextButton from "./NextButton";
 import Progress from "./Progress";
 import FinishScreen from "./FinishScreen";
+import Timer from "./Timer";
+import Footer from "./Footer";
 
+const SEC_PER_QUESTIONS = 30;
 const initialState = {
   questions: [],
   // loading, error, ready, active, finished
@@ -17,6 +20,8 @@ const initialState = {
   answer: null,
   points: 0,
   highscore: 0,
+  isRunning: false,
+  timeLeft: null,
 };
 
 function reducer(state, action) {
@@ -27,7 +32,12 @@ function reducer(state, action) {
     case "dataFailed":
       return { ...state, status: "error" };
     case "start":
-      return { ...state, status: "active" };
+      return {
+        ...state,
+        status: "active",
+        isRunning: true,
+        timeLeft: state.questions.length * SEC_PER_QUESTIONS,
+      };
     case "newAnswer":
       const question = state.questions.at(state.index);
       return {
@@ -46,17 +56,45 @@ function reducer(state, action) {
         status: "finished",
         highscore:
           state.points > state.highscore ? state.points : state.highscore,
+        isRunning: false,
       };
     case "restart":
-      return { ...initialState, questions: state.questions, status: "ready" };
+      return {
+        ...initialState,
+        questions: state.questions,
+        status: "ready",
+        isRunning: false,
+        timeLeft: 480,
+        highscore:
+          state.points > state.highscore ? state.points : state.highscore,
+      };
+    case "timerTick":
+      return {
+        ...state,
+        timeLeft: state.timeLeft - 1,
+        status: state.timeLeft === 0 ? "finished" : state.status,
+        highscore:
+          state.points > state.highscore ? state.points : state.highscore,
+      };
     default:
       throw new Error("Action Unknown");
   }
 }
 
 function App() {
-  const [{ questions, status, index, answer, points, highscore }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    {
+      questions,
+      status,
+      index,
+      answer,
+      points,
+      highscore,
+      isRunning,
+      timeLeft,
+    },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   useEffect(function () {
     fetch(`http://localhost:9000/questions`)
@@ -94,12 +132,19 @@ function App() {
               answer={answer}
               dispatch={dispatch}
             />
-            <NextButton
-              dispatch={dispatch}
-              answer={answer}
-              index={index}
-              numQuestions={numQuestions}
-            />
+            <Footer>
+              <Timer
+                timeLeft={timeLeft}
+                isRunning={isRunning}
+                dispatch={dispatch}
+              />
+              <NextButton
+                dispatch={dispatch}
+                answer={answer}
+                index={index}
+                numQuestions={numQuestions}
+              />
+            </Footer>
           </>
         )}
 
