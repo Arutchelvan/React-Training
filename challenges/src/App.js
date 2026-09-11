@@ -2,6 +2,7 @@ import Calculator from "./components/challenge-1";
 import TextExpander from "./components/challenge-2";
 import CurrencyConverter from "./components/challenge-3";
 import FindGeoLocation from "./components/challenge-4";
+import Banking from "./components/challenge-6-useReducer";
 import InputButtonFocus from "./components/useRefHook";
 
 export default function App() {
@@ -52,6 +53,8 @@ export default function App() {
       <InputButtonFocus />
 
       <hr style={{ margin: "50px" }} />
+
+      <Banking />
     </div>
   );
 }

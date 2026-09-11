@@ -17,3 +17,7 @@ code {
   border-radius: 7px;
   background-color: #f7f7f7;
 }
+
+input:disabled {
+  opacity: 0.5;
+}
