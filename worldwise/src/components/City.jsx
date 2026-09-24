@@ -34,7 +34,10 @@ function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          <span>
+            <img src={`https://flagcdn.com/${emoji}.svg`} width="20" />
+          </span>{" "}
+          {cityName}
         </h3>
       </div>
 

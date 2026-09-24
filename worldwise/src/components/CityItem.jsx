@@ -18,7 +18,9 @@ function CityItem({ city }) {
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
         className={`${styles.cityItem} ${id === currentCity.id ? styles[`cityItem--active`] : ""}`}
       >
-        <span className={styles.emoji}>{emoji}</span>
+        <span className={styles.emoji}>
+          <img src={`https://flagcdn.com/${emoji}.svg`} width="20" />
+        </span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
         <button className={styles.deleteBtn}>&times;</button>
