@@ -19,7 +19,11 @@ function CityItem({ city }) {
         className={`${styles.cityItem} ${id === currentCity.id ? styles[`cityItem--active`] : ""}`}
       >
         <span className={styles.emoji}>
-          <img src={`https://flagcdn.com/${emoji}.svg`} width="20" />
+          <img
+            src={`https://flagcdn.com/32x24/${emoji}.png`}
+            width="32"
+            height="24"
+          />
         </span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>

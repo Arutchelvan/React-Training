@@ -35,8 +35,12 @@ function City() {
         <h6>City name</h6>
         <h3>
           <span>
-            <img src={`https://flagcdn.com/${emoji}.svg`} width="20" />
-          </span>{" "}
+            <img
+              src={`https://flagcdn.com/32x24/${emoji}.png`}
+              width="32"
+              height="24"
+            />
+          </span>
           {cityName}
         </h3>
       </div>

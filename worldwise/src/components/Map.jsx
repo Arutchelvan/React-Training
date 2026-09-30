@@ -1,17 +1,34 @@
 import { useNavigate, useSearchParams } from "react-router";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import styles from "./Map.module.css";
 function Map() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [mapPosition, setMapPosition] = useState([40, 0]);
-  const { cities, currentCity } = useCities();
+  const { cities } = useCities();
 
-  const navigate = useNavigate();
+  const [mapPosition, setMapPosition] = useState([40, 0]);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const mapLat = searchParams.get("lat");
+  const mapLng = searchParams.get("lng");
+
+  useEffect(
+    function () {
+      if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
+    },
+    [mapLat, mapLng],
+  );
 
   return (
-    <div className={styles.mapContainer} onClick={() => navigate("form")}>
+    <div className={styles.mapContainer}>
       <MapContainer
         center={mapPosition}
         zoom={13}
@@ -29,15 +46,39 @@ function Map() {
           >
             <Popup>
               <span>
-                <img src={`https://flagcdn.com/${city.emoji}.svg`} width="20" />
+                <img
+                  src={`https://flagcdn.com/32x24/${city.emoji}.png`}
+                  width="32"
+                  height="24"
+                />
               </span>
               <span>{city.cityName}</span>
             </Popup>
           </Marker>
         ))}
+
+        <ChangeCenter position={mapPosition} />
+        <DetectClick />
       </MapContainer>
     </div>
   );
+}
+
+function ChangeCenter({ position }) {
+  const map = useMap();
+  map.setView(position);
+  return null;
+}
+
+function DetectClick() {
+  const navigate = useNavigate();
+  useMapEvents({
+    click: (e) => {
+      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+      console.log(e);
+    },
+  });
+  return null;
 }
 
 export default Map;
