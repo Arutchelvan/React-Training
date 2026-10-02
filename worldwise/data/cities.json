@@ -35,6 +35,90 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Dharapuram",
+      "country": "India",
+      "emoji": "in",
+      "date": "2026-10-02T03:44:11.628Z",
+      "notes": "This is the best city on the world",
+      "position": {
+        "lat": "10.749970847572584",
+        "lng": "77.54699707031251"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Kundadam",
+      "country": "India",
+      "emoji": "in",
+      "date": "2026-10-02T03:57:42.530Z",
+      "notes": "Kundadam union",
+      "position": {
+        "lat": "10.847517834933202",
+        "lng": "77.4419403076172"
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "Coimbatore",
+      "country": "India",
+      "emoji": "in",
+      "date": "2026-10-02T04:04:25.159Z",
+      "notes": "Test",
+      "position": {
+        "lat": "11.014262489968836",
+        "lng": "76.98669433593751"
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "Perintalmanna",
+      "country": "India",
+      "emoji": "in",
+      "date": "2026-10-02T04:06:11.022Z",
+      "notes": "",
+      "position": {
+        "lat": "11.049263822232517",
+        "lng": "76.11877441406251"
+      },
+      "id": 98443201
+    },
+    {
+      "cityName": "Ukuwela",
+      "country": "Sri Lanka",
+      "emoji": "lk",
+      "date": "2026-10-02T04:06:34.729Z",
+      "notes": "",
+      "position": {
+        "lat": "7.451586286730548",
+        "lng": "80.63964843750001"
+      },
+      "id": 98443202
+    },
+    {
+      "cityName": "Vavuniya",
+      "country": "Sri Lanka",
+      "emoji": "lk",
+      "date": "2026-10-02T04:07:18.122Z",
+      "notes": "",
+      "position": {
+        "lat": "8.749312464728241",
+        "lng": "80.50781250000001"
+      },
+      "id": 98443203
+    },
+    {
+      "cityName": "Branik",
+      "country": "Czechia",
+      "emoji": "cz",
+      "date": "2026-10-02T04:07:39.809Z",
+      "notes": "",
+      "position": {
+        "lat": "50.038166554680714",
+        "lng": "14.414062500000002"
+      },
+      "id": 98443204
     }
   ]
 }
