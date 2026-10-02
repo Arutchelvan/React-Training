@@ -1,124 +1,28 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "pt",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
-      "cityName": "Madrid",
+      "cityName": "Castello de la Plana",
       "country": "Spain",
       "emoji": "es",
-      "date": "2027-07-15T08:22:53.976Z",
+      "date": "2026-10-02T11:22:17.193Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
+        "lat": "39.997914705969656",
+        "lng": "-0.006179809570312501"
       },
-      "id": 17806751
+      "id": 1
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "de",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": 98443197
-    },
-    {
-      "cityName": "Dharapuram",
-      "country": "India",
-      "emoji": "in",
-      "date": "2026-10-02T03:44:11.628Z",
-      "notes": "This is the best city on the world",
-      "position": {
-        "lat": "10.749970847572584",
-        "lng": "77.54699707031251"
-      },
-      "id": 98443198
-    },
-    {
-      "cityName": "Kundadam",
-      "country": "India",
-      "emoji": "in",
-      "date": "2026-10-02T03:57:42.530Z",
-      "notes": "Kundadam union",
-      "position": {
-        "lat": "10.847517834933202",
-        "lng": "77.4419403076172"
-      },
-      "id": 98443199
-    },
-    {
-      "cityName": "Coimbatore",
-      "country": "India",
-      "emoji": "in",
-      "date": "2026-10-02T04:04:25.159Z",
-      "notes": "Test",
-      "position": {
-        "lat": "11.014262489968836",
-        "lng": "76.98669433593751"
-      },
-      "id": 98443200
-    },
-    {
-      "cityName": "Perintalmanna",
-      "country": "India",
-      "emoji": "in",
-      "date": "2026-10-02T04:06:11.022Z",
+      "cityName": "Castello de la Plana",
+      "country": "Spain",
+      "emoji": "es",
+      "date": "2026-10-02T11:22:19.559Z",
       "notes": "",
       "position": {
-        "lat": "11.049263822232517",
-        "lng": "76.11877441406251"
+        "lat": "39.977534125608706",
+        "lng": "-0.000171661376953125"
       },
-      "id": 98443201
-    },
-    {
-      "cityName": "Ukuwela",
-      "country": "Sri Lanka",
-      "emoji": "lk",
-      "date": "2026-10-02T04:06:34.729Z",
-      "notes": "",
-      "position": {
-        "lat": "7.451586286730548",
-        "lng": "80.63964843750001"
-      },
-      "id": 98443202
-    },
-    {
-      "cityName": "Vavuniya",
-      "country": "Sri Lanka",
-      "emoji": "lk",
-      "date": "2026-10-02T04:07:18.122Z",
-      "notes": "",
-      "position": {
-        "lat": "8.749312464728241",
-        "lng": "80.50781250000001"
-      },
-      "id": 98443203
-    },
-    {
-      "cityName": "Branik",
-      "country": "Czechia",
-      "emoji": "cz",
-      "date": "2026-10-02T04:07:39.809Z",
-      "notes": "",
-      "position": {
-        "lat": "50.038166554680714",
-        "lng": "14.414062500000002"
-      },
-      "id": 98443204
+      "id": 2
     }
   ]
 }
