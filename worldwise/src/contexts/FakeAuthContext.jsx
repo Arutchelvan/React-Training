@@ -1,6 +1,5 @@
-import { createContext, useContext, useReducer } from "react";
-
-const AuthContext = createContext();
+import { useReducer } from "react";
+import { AuthContext } from "./useAuth";
 
 const initialState = { user: null, isAuthenticated: false };
 
@@ -45,12 +44,4 @@ function AuthProvider({ children }) {
   );
 }
 
-function useAuth() {
-  const context = useContext(AuthContext);
-  if (context === undefined)
-    throw new Error("AuthContext is used outside AuthProvider");
-
-  return context;
-}
-
-export { AuthProvider, useAuth };
+export { AuthProvider };

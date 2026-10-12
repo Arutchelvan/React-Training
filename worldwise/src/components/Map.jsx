@@ -8,7 +8,7 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import { useEffect, useState } from "react";
-import { useCities } from "../contexts/CitiesContext";
+import { useCities } from "../contexts/useCities";
 import styles from "./Map.module.css";
 import { useGeolocation } from "../hooks/useGeoLocation";
 import Button from "../components/Button";

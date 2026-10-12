@@ -4,35 +4,35 @@
       "cityName": "Castello de la Plana",
       "country": "Spain",
       "emoji": "es",
-      "date": "2026-10-02T11:22:17.193Z",
+      "date": "2026-10-11T11:57:44.148Z",
       "notes": "",
       "position": {
-        "lat": "39.997914705969656",
-        "lng": "-0.006179809570312501"
+        "lat": "39.98680189869232",
+        "lng": "-0.03295898437500001"
       },
       "id": 1
     },
     {
-      "cityName": "Castello de la Plana",
+      "cityName": "Helechosa de los Montes",
       "country": "Spain",
       "emoji": "es",
-      "date": "2026-10-02T11:22:19.559Z",
+      "date": "2026-10-12T00:44:54.398Z",
       "notes": "",
       "position": {
-        "lat": "39.977534125608706",
-        "lng": "-0.000171661376953125"
+        "lat": "39.31979119473512",
+        "lng": "-4.899902343750001"
       },
       "id": 2
     },
     {
-      "cityName": "Jerantut",
-      "country": "Malaysia",
-      "emoji": "my",
-      "date": "2026-10-03T02:03:03.456Z",
+      "cityName": "Olalhas",
+      "country": "Portugal",
+      "emoji": "pt",
+      "date": "2026-10-12T00:44:58.352Z",
       "notes": "",
       "position": {
-        "lat": "4.556358914187313",
-        "lng": "102.601318359375"
+        "lat": "39.641133629620626",
+        "lng": "-8.327636718750002"
       },
       "id": 3
     }

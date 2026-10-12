@@ -1,6 +1,4 @@
-.cityItem,
-.cityItem:link,
-.cityItem:visited {
+.cityItem {
   display: flex;
   gap: 1.6rem;
   align-items: center;
@@ -10,7 +8,14 @@
   padding: 1rem 2rem;
   border-left: 5px solid var(--color-brand--2);
   cursor: pointer;
+}
 
+.cityLink {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  gap: 1.6rem;
+  align-items: center;
   color: inherit;
   text-decoration: none;
 }

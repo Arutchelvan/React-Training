@@ -1,6 +1,6 @@
-import { useParams, useSearchParams } from "react-router";
+import { useParams } from "react-router";
 import styles from "./City.module.css";
-import { useCities } from "../contexts/CitiesContext";
+import { useCities } from "../contexts/useCities";
 import { useEffect } from "react";
 import Spinner from "./Spinner";
 import BackButton from "./BackButton";
@@ -22,7 +22,7 @@ function City() {
     function () {
       getCity(id);
     },
-    [id],
+    [id, getCity],
   );
 
   const { cityName, emoji, date, notes } = currentCity;
