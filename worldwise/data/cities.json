@@ -13,18 +13,6 @@
       "id": 1
     },
     {
-      "cityName": "Helechosa de los Montes",
-      "country": "Spain",
-      "emoji": "es",
-      "date": "2026-10-12T00:44:54.398Z",
-      "notes": "",
-      "position": {
-        "lat": "39.31979119473512",
-        "lng": "-4.899902343750001"
-      },
-      "id": 2
-    },
-    {
       "cityName": "Olalhas",
       "country": "Portugal",
       "emoji": "pt",
@@ -35,6 +23,30 @@
         "lng": "-8.327636718750002"
       },
       "id": 3
+    },
+    {
+      "cityName": "Orsennes",
+      "country": "France",
+      "emoji": "fr",
+      "date": "2026-10-13T00:36:00.381Z",
+      "notes": "",
+      "position": {
+        "lat": "46.52878958009819",
+        "lng": "1.7138671875000002"
+      },
+      "id": 4
+    },
+    {
+      "cityName": "Rautenhausen",
+      "country": "Germany",
+      "emoji": "de",
+      "date": "2026-10-13T00:36:10.052Z",
+      "notes": "",
+      "position": {
+        "lat": "51.04249797574775",
+        "lng": "9.799804687500002"
+      },
+      "id": 5
     }
   ]
 }
