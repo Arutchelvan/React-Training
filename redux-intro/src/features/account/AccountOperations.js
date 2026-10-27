@@ -11,13 +11,18 @@ function AccountOperations() {
 
   const dispatch = useDispatch();
 
-  const account = useSelector((store) => store.account);
-  console.log(account);
+  const {
+    loan: currentLoan,
+    loanPurpose: currentLoanPurpose,
+    balance,
+    isLoading,
+  } = useSelector((store) => store.account);
 
   function handleDeposit() {
-    if (!deposit || !currency) return;
+    if (!depositAmount) return;
     dispatch(deposit(depositAmount, currency));
     setDepositAmount("");
+    setCurrency("USD");
   }
 
   function handleWithdrawal() {
@@ -46,7 +51,7 @@ function AccountOperations() {
           <input
             type="number"
             value={depositAmount}
-            onChange={(e) => setDepositAmount(+e.target.value)}
+            onChange={(e) => setDepositAmount(Number(e.target.value))}
           />
           <select
             value={currency}
@@ -57,7 +62,9 @@ function AccountOperations() {
             <option value="GBP">British Pound</option>
           </select>
 
-          <button onClick={handleDeposit}>Deposit {depositAmount}</button>
+          <button onClick={handleDeposit} disabled={isLoading}>
+            {isLoading ? "Conveting..." : `Deposit ${depositAmount}`}
+          </button>
         </div>
 
         <div>
@@ -65,7 +72,7 @@ function AccountOperations() {
           <input
             type="number"
             value={withdrawalAmount}
-            onChange={(e) => setWithdrawalAmount(+e.target.value)}
+            onChange={(e) => setWithdrawalAmount(Number(e.target.value))}
           />
           <button onClick={handleWithdrawal}>
             Withdraw {withdrawalAmount}
@@ -77,7 +84,7 @@ function AccountOperations() {
           <input
             type="number"
             value={loanAmount}
-            onChange={(e) => setLoanAmount(+e.target.value)}
+            onChange={(e) => setLoanAmount(Number(e.target.value))}
             placeholder="Loan amount"
           />
           <input
@@ -88,9 +95,9 @@ function AccountOperations() {
           <button onClick={handleRequestLoan}>Request loan</button>
         </div>
 
-        {account.loan ? (
+        {currentLoan ? (
           <div>
-            <span>Pay back ${account.loan} </span>
+            <span>Pay back ${currentLoan} </span>
             <button onClick={handlePayLoan}>Pay loan</button>
           </div>
         ) : (
