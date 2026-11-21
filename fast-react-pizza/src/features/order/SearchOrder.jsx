@@ -20,6 +20,7 @@ function SearchOrder() {
         value={query}
         placeholder="Search Order #"
         onChange={(e) => setQuery(e.target.value)}
+        className="bg-white p-1"
       />
     </form>
   );
